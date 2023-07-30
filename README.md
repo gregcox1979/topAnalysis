@@ -1,5 +1,5 @@
 
-// Choose ad directory to store everything. We will now call this top_dir
+// Choose directory to store everything. We will now call this top_dir
 
 1. Copy 1_setupFolders.py to top_dir and run
 2. Copy 2_orgFiles to top_dir
