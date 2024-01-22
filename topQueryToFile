@@ -1,0 +1,51 @@
+// define run numbers to output
+var runNumbers = ["RUN3","RUN4","RUN5"]
+
+var fileName = "TOP_SUMMARY.csv"
+fs.writeFile(fileName, "TOP Comparisons\n", (err) => {
+        if (err) throw err;
+});
+
+fs.appendFile(fileName, "RUN,collection,total,readLock,writeLock,queries,getmore,insert,update,remove,commands\n", (err) => {
+    if (err) throw err;
+});
+
+for (runNumber of runNumbers) {
+    var pipe = [{
+        $match:{run:runNumber}
+    },{
+        $group:{
+            _id:{run:"$run",file:"$file",shard:"$shard"},
+            doc:{$first:"$$ROOT"}
+        }
+    },
+    // {
+    //     $count:"tot"    
+    // },
+    {
+        $group:{
+            _id:"$run",
+            total:{$sum:"$doc.total"},
+            readLock:{$sum:"$doc.readLock"},
+            writeLock:{$sum:"$doc.writeLock"},
+            queries:{$sum:"$doc.queries"},
+            getmore:{$sum:"$doc.getmore"},
+            insert:{$sum:"$doc.insert"},
+            update:{$sum:"$doc.update"},
+            remove:{$sum:"$doc.remove"},
+            commands:{$sum:"$doc.commands"},
+        }    
+    },
+    {
+        $limit: 1
+    }]
+
+    db.getCollectionNames().forEach(function(collname) {
+        var collection = collname
+        var cursor = db.getCollection(collection).aggregate(pipe);
+        doc = cursor.toArray()[0];
+        fs.appendFile(fileName, runNumber+','+collection+','+doc.total+','+doc.readLock+','+doc.writeLock+','+doc.queries+','+doc.getmore+','+doc.insert+','+doc.update+','+doc.remove+','+doc.commands+"\n", (err) => {
+            if (err) throw err;
+        });
+    })
+}
