@@ -1,25 +1,11 @@
 # import required module
 import os
 # assign directory
-dir_parent = '01156917'
+dir_parent = 'TOPFILES'
 
 sub_dirs = [
-    'RUN1_HK_START_TOP',
-    'RUN1_HK_END_TOP',
-    'RUN2_HK_START_TOP',
-    'RUN2_HK_END_TOP',
-    'RUN3_HK_START_TOP',
-    'RUN3_HK_END_TOP',
-    'RUN4_HK_START_TOP',
-    'RUN4_HK_END_TOP',
-    'RUN5_HK_START_TOP',
-    'RUN5_HK_END_TOP',        
-    'RUN6_HK_START_TOP',
-    'RUN6_HK_END_TOP',
-    'RUN7_HK_START_TOP',
-    'RUN7_HK_END_TOP',
-    'RUN8_HK_START_TOP',
-    'RUN8_HK_END_TOP',
+    'RUN5_HK_EXT_TOP_START',
+    'RUN5_HK_EXT_TOP_END'
 ]
 
 for sd in sub_dirs:
@@ -33,9 +19,9 @@ for sd in sub_dirs:
         ['iapp1480','shard4_1480'],
         ['iapp1481','shard5_1481'],
         ['iapp1482','shard6_1482'],
-        ['iapp1100','shard7_1100'],
-        ['iapp1101','shard8_1101'],
-        ['iapp1103','shard9_1103'],
+        ['iapp5166','shard7_5166'],
+        ['iapp5167','shard8_5167'],
+        ['iapp5168','shard9_5168'],
         ['iapp660','shard10_660'],   
         ['iapp694','shard11_694'],
         ['iapp662','shard12_662'],
@@ -93,7 +79,17 @@ for sd in sub_dirs:
         ['iapp5043','shard64_5043'],
         ['iapp5038','shard65_5038'],
         ['iapp4321','shard66_4321'],
-        ['iapp4322','shard67_4322'] 
+        ['iapp4322','shard67_4322'],
+        ['iapp4583','shard68_4583'],
+        ['iapp4584','shard69_4584'],
+        ['iapp4602','shard70_4602'],
+        ['iapp4603','shard71_4603'],
+        ['iapp4604','shard72_4604'],
+        ['iapp4605','shard73_4605'],
+        ['iapp4606','shard74_4606'],
+        ['iapp4607','shard75_4607'],
+        ['iapp4608','shard76_4608'],
+        ['iapp4609','shard77_4609']
     ]
 
     # iterate over files in
